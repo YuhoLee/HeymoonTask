@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_home">Home</string>
+    <string name="nav_favorites">Favorites</string>
+    
+    <string name="text_seoul_museum_of_art">Seoul Museum of Art</string>
+    <string name="text_favorites">Favorites</string>
+    <string name="text_search_collections">Search Collections</string>
+    <string name="text_collections">Collections</string>
+</resources>
