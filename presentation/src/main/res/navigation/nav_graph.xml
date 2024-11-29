@@ -11,9 +11,14 @@
         tools:layout="@layout/fragment_home">
 
         <action
+            android:id="@+id/action_home_to_search"
+            app:destination="@id/SearchFragment"/>
+
+        <action
             android:id="@+id/action_HomeFragment_to_FavoritesFragment"
             app:destination="@id/FavoritesFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/FavoritesFragment"
         android:name="com.project.presentation.main.FavoritesFragment"
@@ -21,6 +26,15 @@
 
         <action
             android:id="@+id/action_FavoritesFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.project.presentation.search.SearchFragment">
+
+        <action
+            android:id="@+id/action_OnBackPressed"
             app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>

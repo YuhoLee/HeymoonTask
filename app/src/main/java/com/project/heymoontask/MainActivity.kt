@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.HomeFragment, R.id.FavoritesFragment -> {
+                com.project.presentation.R.id.HomeFragment, com.project.presentation.R.id.FavoritesFragment -> {
                     // 홈 및 즐겨찾기 화면에서는 바텀 네비게이션 표시
                     binding.bottomNav.visibility = View.VISIBLE
                 }
