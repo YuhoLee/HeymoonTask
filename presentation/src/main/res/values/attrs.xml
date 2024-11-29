@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base Header -->
+    <!-- BaseHeader, BaseActionHeader -->
     <attr name="headerTitle" format="reference|string" />
+    <attr name="backEnabled" format="reference|boolean" />
+    <attr name="favoriteEnabled" format="reference|boolean" />
 
     <declare-styleable name="header">
         <attr name="headerTitle" />
+        <attr name="backEnabled" />
+        <attr name="favoriteEnabled" />
     </declare-styleable>
 </resources>
