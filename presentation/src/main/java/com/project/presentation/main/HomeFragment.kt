@@ -19,6 +19,12 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, MainViewModel>(
 
     override fun initListener() {
         super.initListener()
+
+        binding.apply{
+            clSearchCollections.setOnClickListener {
+
+            }
+        }
     }
 
     override fun observeViewModel() {
