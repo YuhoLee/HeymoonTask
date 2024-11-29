@@ -3,6 +3,8 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 val properties = Properties()
@@ -40,6 +42,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    hilt{
+        enableAggregatingTask = false
+    }
 }
 
 dependencies {
@@ -51,4 +56,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    // Room
+    implementation(libs.room)
+    ksp(libs.room.compiler)
+
+    // retrofit2
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp3.logging.interceptor)
 }
