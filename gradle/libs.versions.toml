@@ -17,6 +17,7 @@ glideCompose = "1.0.0-beta01"
 retrofit2 = "2.11.0"
 okhttp3 = "4.9.3"
 ksp = "2.0.20-1.0.25"
+paging3 = "3.3.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +32,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 room = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
@@ -41,6 +43,10 @@ glide-compose = { group = "com.github.bumptech.glide", name = "compose", version
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
 retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit2" }
 okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3" }
+
+paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging3"}
+paging-runtime-ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging3"}
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging3"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
