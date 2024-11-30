@@ -1,11 +1,11 @@
 package com.project.presentation.main
 
+import com.project.presentation.R
 import com.project.presentation.base.BaseFragment
 import com.project.presentation.databinding.FragmentHomeBinding
 
-class HomeFragment: BaseFragment<FragmentHomeBinding, MainViewModel>(
+class HomeFragment: BaseFragment<FragmentHomeBinding, FavoritesViewModel>(
     bindingInflater = FragmentHomeBinding::inflate,
-    viewModelClass = MainViewModel::class.java
 ) {
     override fun init() {
         super.init()
@@ -22,7 +22,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, MainViewModel>(
 
         binding.apply{
             clSearchCollections.setOnClickListener {
-
+                navController.navigate(R.id.action_home_to_search)
             }
         }
     }

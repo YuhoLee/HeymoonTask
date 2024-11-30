@@ -3,9 +3,8 @@ package com.project.presentation.main
 import com.project.presentation.base.BaseFragment
 import com.project.presentation.databinding.FragmentFavoritesBinding
 
-class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, MainViewModel>(
+class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewModel>(
     bindingInflater = FragmentFavoritesBinding::inflate,
-    viewModelClass = MainViewModel::class.java
 ) {
     override fun init() {
         super.init()

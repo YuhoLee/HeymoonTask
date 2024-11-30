@@ -7,5 +7,19 @@
     <string name="text_favorites">즐겨찾기</string>
     <string name="text_search_collections">소장품 검색</string>
     <string name="text_collections">소장품</string>
+    <string name="text_no_search_result_title">\'#VALUE#\'에 대한 검색 결과가 없어요</string>
+    <string name="text_no_search_result_subtitle">다른 검색어를 입력하거나\n철자와 띄어쓰기를 확인해보세요.</string>
+    <string name="text_search_verb">검색하기</string>
 
+    <string name="text_search_filter_all">전체</string>
+    <string name="text_search_filter_painting">회화</string>
+    <string name="text_search_filter_ko_painting">한국화</string>
+    <string name="text_search_filter_drawing_and_engraving">드로잉&amp;판화</string>
+    <string name="text_search_filter_sculpture">조각</string>
+    <string name="text_search_filter_new_media">뉴미디어</string>
+    <string name="text_search_filter_photo">사진</string>
+    <string name="text_search_filter_installation">설치</string>
+    <string name="text_search_filter_design">디자인</string>
+
+    <string name="placeholder_enter_keyword">검색어를 입력하세요</string>
 </resources>

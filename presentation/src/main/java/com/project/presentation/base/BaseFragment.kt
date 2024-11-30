@@ -7,21 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
-    private val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB,
-    private val viewModelClass: Class<VM>
+    private val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : Fragment() {
     private var _binding: VB? = null
     protected val binding get() = _binding!!
 
-    protected lateinit var viewModel: VM
-        private set
+    protected lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[viewModelClass]
 
         init()
     }
@@ -59,7 +58,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
      * View가 생성된 이후에 수행될 작업
      */
     protected open fun initView(){
-
+        navController = findNavController()
     }
 
     /**

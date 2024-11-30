@@ -7,4 +7,19 @@
     <string name="text_favorites">Favorites</string>
     <string name="text_search_collections">Search Collections</string>
     <string name="text_collections">Collections</string>
+    <string name="text_no_search_result_title">There\'s no search result for \'#VALUE#\'</string>
+    <string name="text_no_search_result_subtitle">Enter another search keyword or\ncheck the spelling and spacing.</string>
+    <string name="text_search_verb">Search</string>
+
+    <string name="text_search_filter_all">All</string>
+    <string name="text_search_filter_painting">Painting</string>
+    <string name="text_search_filter_ko_painting">Korean Painting</string>
+    <string name="text_search_filter_drawing_and_engraving">Drawing &amp; Engraving</string>
+    <string name="text_search_filter_sculpture">Sculpture</string>
+    <string name="text_search_filter_new_media">New Media</string>
+    <string name="text_search_filter_photo">Photo</string>
+    <string name="text_search_filter_installation">Installation</string>
+    <string name="text_search_filter_design">Design</string>
+
+    <string name="placeholder_enter_keyword">Enter keywords</string>
 </resources>
