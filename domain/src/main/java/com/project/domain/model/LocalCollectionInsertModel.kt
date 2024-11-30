@@ -1,10 +1,6 @@
-package com.project.data.local.entity
+package com.project.domain.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "FavoriteCollection")
-data class FavoriteCollectionEntity(
+data class LocalCollectionInsertModel(
     val productNameKo: String,
     val productNameEn: String,
     val maker: String,
@@ -16,8 +12,5 @@ data class FavoriteCollectionEntity(
     val materialTechnic: String,
     val thumbImgUrl: String,
     val mainImgUrl: String,
-    val addedDatetime: String
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null
-}
+    val addedDatetime: String,
+)
