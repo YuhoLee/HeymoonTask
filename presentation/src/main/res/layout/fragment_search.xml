@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <com.project.presentation.base.BaseActionHeader
         android:id="@+id/header"
@@ -44,7 +45,7 @@
             android:maxLines="1"
             android:textColor="@color/gray800"
             android:textColorHint="@color/gray400"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivSearch"
@@ -91,18 +92,97 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clOrderBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/layer_rect_transparent_r16_gray400_s1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clSearch">
+
+        <TextView
+            android:id="@+id/tvOrderBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="제작연도 오름차순"
+            android:textSize="16sp"
+            android:textColor="@color/gray400"
+            android:fontFamily="@font/pretendard_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivOrderBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_expand_down"
+            android:layout_marginStart="4dp"
+            android:tint="@color/gray400"
+            app:layout_constraintStart_toEndOf="@id/tvOrderBy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:paddingVertical="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/selector_search_filter_bg"
+        app:layout_constraintStart_toEndOf="@id/clOrderBy"
+        app:layout_constraintTop_toTopOf="@id/clOrderBy"
+        app:layout_constraintBottom_toBottomOf="@id/clOrderBy">
+
+        <TextView
+            android:id="@+id/tvClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="부문"
+            android:textSize="16sp"
+            android:textColor="@color/selector_search_filter_color"
+            android:fontFamily="@font/pretendard_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_expand_down"
+            android:layout_marginStart="4dp"
+            android:tint="@color/selector_search_filter_color"
+            app:layout_constraintStart_toEndOf="@id/tvClass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearchResult"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingBottom="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clSearch"
+        app:layout_constraintTop_toBottomOf="@id/clOrderBy"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/list_item_collections" />
@@ -113,13 +193,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/layer_rect_transparent_r6_gray700_s1"
+        android:background="@drawable/layer_rect_white_r6_gray700_s1"
         android:fontFamily="@font/pretendard_semibold"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/text_search_verb"
         android:textColor="@color/gray800"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

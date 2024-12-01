@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/layer_rect_gray400_r16" android:state_selected="true"/>
+    <item android:drawable="@drawable/layer_rect_transparent_r16_gray400_s1" android:state_selected="false"/>
+</selector>

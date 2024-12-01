@@ -4,7 +4,7 @@ import com.project.presentation.R
 import com.project.presentation.base.BaseFragment
 import com.project.presentation.databinding.FragmentHomeBinding
 
-class HomeFragment: BaseFragment<FragmentHomeBinding, FavoritesViewModel>(
+class HomeFragment: BaseFragment<FragmentHomeBinding>(
     bindingInflater = FragmentHomeBinding::inflate,
 ) {
     override fun init() {

@@ -2,7 +2,6 @@ package com.project.presentation.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,9 +9,8 @@ import com.project.domain.model.RemoteCollectionModel
 import com.project.presentation.databinding.ListItemCollectionsBinding
 import java.util.Locale
 
-class SearchCollectionAdapter: PagingDataAdapter<RemoteCollectionModel, SearchCollectionAdapter.CollectionViewHolder>(
-    DiffCallback
-) {
+class SearchCollectionAdapter(val onItemClick: (RemoteCollectionModel) -> Unit): RecyclerView.Adapter<SearchCollectionAdapter.CollectionViewHolder>() {
+    private val collectionList: MutableList<RemoteCollectionModel> = mutableListOf()
 
     inner class CollectionViewHolder(
         private val binding: ListItemCollectionsBinding
@@ -29,7 +27,12 @@ class SearchCollectionAdapter: PagingDataAdapter<RemoteCollectionModel, SearchCo
                     }
                     tvMakerAndYear.text = "${item.maker}(${item.manufactureYear})"
                     tvType.text = item.productClass
+
+                    clItem.setOnClickListener {
+                        onItemClick.invoke(item)
+                    }
                 }
+
             }
         }
 
@@ -44,9 +47,16 @@ class SearchCollectionAdapter: PagingDataAdapter<RemoteCollectionModel, SearchCo
         return CollectionViewHolder(binding)
     }
 
+    override fun getItemCount(): Int = collectionList.count()
+
     override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
-        val item = getItem(position)
+        val item = collectionList[position]
         holder.bind(item)
+    }
+
+    fun updateList(list: List<RemoteCollectionModel>){
+        collectionList.clear()
+        collectionList.addAll(list)
     }
 
     companion object DiffCallback : DiffUtil.ItemCallback<RemoteCollectionModel>() {

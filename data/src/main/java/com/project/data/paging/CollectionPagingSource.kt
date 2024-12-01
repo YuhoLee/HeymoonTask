@@ -2,7 +2,6 @@ package com.project.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.project.common.extension.Extension.orDefault
 import com.project.common.extension.Extension.orOneSpaceEmpty
 import com.project.data.mapper.Mapper.toRemoteCollectionModel
 import com.project.data.remote.NetworkUtils

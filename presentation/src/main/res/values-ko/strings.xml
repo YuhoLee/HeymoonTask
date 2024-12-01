@@ -11,15 +11,20 @@
     <string name="text_no_search_result_subtitle">다른 검색어를 입력하거나\n철자와 띄어쓰기를 확인해보세요.</string>
     <string name="text_search_verb">검색하기</string>
 
-    <string name="text_search_filter_all">전체</string>
-    <string name="text_search_filter_painting">회화</string>
-    <string name="text_search_filter_ko_painting">한국화</string>
-    <string name="text_search_filter_drawing_and_engraving">드로잉&amp;판화</string>
-    <string name="text_search_filter_sculpture">조각</string>
-    <string name="text_search_filter_new_media">뉴미디어</string>
-    <string name="text_search_filter_photo">사진</string>
-    <string name="text_search_filter_installation">설치</string>
-    <string name="text_search_filter_design">디자인</string>
+    <string name="text_search_sector">부문</string>
+    <string name="text_search_class_painting">회화</string>
+    <string name="text_search_class_ko_painting">한국화</string>
+    <string name="text_search_class_drawing_and_engraving">드로잉&amp;판화</string>
+    <string name="text_search_class_sculpture">조각</string>
+    <string name="text_search_class_new_media">뉴미디어</string>
+    <string name="text_search_class_photo">사진</string>
+    <string name="text_search_class_installation">설치</string>
+    <string name="text_search_class_design">디자인</string>
+    <string name="text_search_class_explanation">#VALUE# 외 #COUNT#</string>
+    <string name="text_search_order_by_product_year_asc">제작연도 오름차순</string>
+    <string name="text_search_order_by_product_year_desc">제작연도 내림차순</string>
+
+    <string name="text_confirm">확인</string>
 
     <string name="placeholder_enter_keyword">검색어를 입력하세요</string>
 </resources>

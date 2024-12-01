@@ -11,15 +11,20 @@
     <string name="text_no_search_result_subtitle">Enter another search keyword or\ncheck the spelling and spacing.</string>
     <string name="text_search_verb">Search</string>
 
-    <string name="text_search_filter_all">All</string>
-    <string name="text_search_filter_painting">Painting</string>
-    <string name="text_search_filter_ko_painting">Korean Painting</string>
-    <string name="text_search_filter_drawing_and_engraving">Drawing &amp; Engraving</string>
-    <string name="text_search_filter_sculpture">Sculpture</string>
-    <string name="text_search_filter_new_media">New Media</string>
-    <string name="text_search_filter_photo">Photo</string>
-    <string name="text_search_filter_installation">Installation</string>
-    <string name="text_search_filter_design">Design</string>
+    <string name="text_search_sector">Sector</string>
+    <string name="text_search_class_painting">Painting</string>
+    <string name="text_search_class_ko_painting">Korean Painting</string>
+    <string name="text_search_class_drawing_and_engraving">Drawing &amp; Engraving</string>
+    <string name="text_search_class_sculpture">Sculpture</string>
+    <string name="text_search_class_new_media">New Media</string>
+    <string name="text_search_class_photo">Photo</string>
+    <string name="text_search_class_installation">Installation</string>
+    <string name="text_search_class_explanation">#VALUE# and #COUNT# more</string>
+    <string name="text_search_class_design">Design</string>
+    <string name="text_search_order_by_product_year_asc">Product year Asc</string>
+    <string name="text_search_order_by_product_year_desc">Product year Desc</string>
+
+    <string name="text_confirm">Confirm</string>
 
     <string name="placeholder_enter_keyword">Enter keywords</string>
 </resources>

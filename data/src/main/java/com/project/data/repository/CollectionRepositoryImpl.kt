@@ -3,11 +3,15 @@ package com.project.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.PagingSource.LoadResult
 import com.project.common.data.DataState
+import com.project.common.extension.Extension.orOneSpaceEmpty
 import com.project.data.local.db.FavoriteCollectionDatabase
 import com.project.data.mapper.Mapper.toFavoriteCollectionEntity
 import com.project.data.mapper.Mapper.toLocalCollectionModel
+import com.project.data.mapper.Mapper.toRemoteCollectionModel
 import com.project.data.paging.CollectionPagingSource
+import com.project.data.remote.NetworkUtils
 import com.project.data.remote.datasource.CollectionDataSource
 import com.project.domain.model.LocalCollectionInsertModel
 import com.project.domain.model.LocalCollectionModel
@@ -21,34 +25,37 @@ class CollectionRepositoryImpl @Inject constructor(
     private val collectionDataSource: CollectionDataSource,
     private val favoriteCollectionDatabase: FavoriteCollectionDatabase
 ) : CollectionRepository {
-    companion object{
-        const val PAGE_SIZE = 20
-    }
-
     /** Remote */
 
     override suspend fun fetchRemoteCollections(
+        startIdx: Int,
+        endIdx: Int,
         productClass: String?,
         collectYear: String?,
         productNameKo: String?,
         productNameEn: String?
-    ): Flow<PagingData<RemoteCollectionModel>> {
-        return Pager(
-            config = PagingConfig(
-                pageSize = PAGE_SIZE,
-                enablePlaceholders = false,
-                initialLoadSize = PAGE_SIZE
-            ),
-            pagingSourceFactory = {
-                CollectionPagingSource(
-                    collectionDataSource = collectionDataSource,
-                    productClass = productClass,
-                    collectYear = collectYear,
-                    productNameKo = productNameKo,
-                    productNameEn = productNameEn
-                )
+    ): Flow<DataState<List<RemoteCollectionModel>>> {
+        return flow {
+            emit(DataState.Loading(isLoading = true))
+            try {
+                val response = NetworkUtils.safeApiCall {
+                    collectionDataSource.fetchCollections(
+                        startIdx = startIdx,
+                        endIdx = endIdx,
+                        productClass = productClass.orOneSpaceEmpty(),
+                        collectYear = collectYear.orOneSpaceEmpty(),
+                        productNameKo = productNameKo.orOneSpaceEmpty(),
+                        productNameEn = productNameEn.orOneSpaceEmpty(),
+                    )
+                }
+                val list = response?.res?.collectionList?.toRemoteCollectionModel() ?: listOf()
+                emit(DataState.Success(data = list))
+            } catch (e: Exception) {
+                emit(DataState.Error(e))
+            } finally {
+                emit(DataState.Loading(isLoading = false))
             }
-        ).flow
+        }
     }
 
 
