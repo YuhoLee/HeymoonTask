@@ -53,7 +53,9 @@
 
         <action
             android:id="@+id/action_collection_detail_to_favorites"
-            app:destination="@id/FavoritesFragment" />
+            app:destination="@id/FavoritesFragment"
+            app:popUpTo="@id/HomeFragment"
+            app:popUpToInclusive="true"/>
 
     </fragment>
 </navigation>

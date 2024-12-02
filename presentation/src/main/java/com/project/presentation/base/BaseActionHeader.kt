@@ -48,6 +48,10 @@ class BaseActionHeader: ConstraintLayout {
         binding.tvActionHeaderTitle.text = title
     }
 
+    fun setFavoriteSelected(isSelected: Boolean){
+        binding.ivFavorite.isSelected = isSelected
+    }
+
     fun setOnBackPressed(callback: () -> Unit){
         binding.ivBack.setOnClickListener {
             callback.invoke()
