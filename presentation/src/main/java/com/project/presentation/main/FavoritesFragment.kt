@@ -25,6 +25,12 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(
     private lateinit var favoritesAdapter: FavoritesAdapter
     private var backPressJob: Job? = null
 
+    override fun onStart() {
+        super.onStart()
+
+        viewModel.fetchFavoriteCollections()
+    }
+
     override fun init() {
         super.init()
 

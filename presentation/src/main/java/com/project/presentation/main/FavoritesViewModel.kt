@@ -20,11 +20,7 @@ class FavoritesViewModel @Inject constructor(
         MutableStateFlow(FavoritesUiState.create())
     val uiState get() = _uiState.asStateFlow()
 
-    init {
-        fetchFavoriteCollections()
-    }
-
-    private fun fetchFavoriteCollections() {
+    fun fetchFavoriteCollections() {
         viewModelScope.launch(Dispatchers.IO) {
             fetchFavoriteCollectionsUseCase().collectLatest { result ->
                 when (result) {
