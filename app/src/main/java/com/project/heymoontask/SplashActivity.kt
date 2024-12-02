@@ -17,7 +17,7 @@ class SplashActivity: AppCompatActivity() {
 
         // 2초 대기 후 메인화면으로 이동
         splashJob = lifecycleScope.launch {
-            delay(2000) // 2초 대기
+            delay(1500) // 1.5초 대기
             navigateToMain()
         }
 
