@@ -9,7 +9,6 @@ data class SearchUiState(
     val sortType: SortType,
     val searchStartIdx: Int,
     val searchEndIdx: Int,
-    val isPagingExist: Boolean,
     val isLoading: Boolean,
     val isSearchLoading: Boolean,
     val errorMsg: String?
@@ -22,7 +21,6 @@ data class SearchUiState(
             searchResult = null,
             productClasses = ProductClass.entries,
             sortType = SortType.ManufactureYearAsc,
-            isPagingExist = true,
             isLoading = false,
             isSearchLoading = false,
             searchStartIdx = 1,

@@ -3,6 +3,7 @@ package com.project.presentation.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.common.data.DataState
+import com.project.domain.model.RemoteCollectionModel
 import com.project.domain.usecase.FetchSearchCollectionsUseCase
 import com.project.presentation.search.SearchUiState.Companion.PAGING_SIZE
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,14 +21,7 @@ class SearchViewModel @Inject constructor(
     val uiState get() = _uiState.asStateFlow()
 
     fun updateOrderBy(type: SortType){
-        val sortedList = when(type){
-            SortType.ManufactureYearAsc -> {
-                _uiState.value.searchResult?.sortedBy { it.manufactureYear }
-            }
-            else -> {
-                _uiState.value.searchResult?.sortedByDescending { it.manufactureYear }
-            }
-        }
+        val sortedList = _uiState.value.searchResult.sortBySortType(type)
         _uiState.value = _uiState.value.copy(
             sortType = type,
             searchResult = sortedList
@@ -49,12 +43,12 @@ class SearchViewModel @Inject constructor(
                 _uiState.value = _uiState.value.copy(
                     searchResult = null,
                     searchStartIdx = 1,
-                    isPagingExist = true,
                     searchEndIdx = PAGING_SIZE
                 )
             }
 
-            if(_uiState.value.isSearchLoading || !_uiState.value.isPagingExist) return@launch
+            // 로딩 중일때는 요청되지 않도록함
+            if(uiState.value.isSearchLoading) return@launch
 
             fetchSearchCollectionsUseCase(
                 startIdx = _uiState.value.searchStartIdx,
@@ -69,8 +63,8 @@ class SearchViewModel @Inject constructor(
                     }
 
                     is DataState.Success -> {
-                        val resList = if(_uiState.value.searchResult != null){
-                            _uiState.value.searchResult!!.plus(result.data?.sortedBy { it.manufactureYear } ?: listOf())
+                        val resList = if(uiState.value.searchResult != null){
+                            uiState.value.searchResult!!.plus(result.data.sortBySortType(uiState.value.sortType))
                         }else{
                             result.data ?: listOf()
                         }
@@ -78,7 +72,6 @@ class SearchViewModel @Inject constructor(
                             searchResult = resList,
                             searchStartIdx = _uiState.value.searchEndIdx + 1,
                             searchEndIdx = _uiState.value.searchEndIdx + PAGING_SIZE,
-                            isPagingExist = true,
                             errorMsg = null
                         )
                     }
@@ -93,4 +86,16 @@ class SearchViewModel @Inject constructor(
             }
         }
     }
+
+    private fun List<RemoteCollectionModel>?.sortBySortType(type: SortType) =
+        when(type) {
+            SortType.ManufactureYearAsc -> {
+                this?.sortedBy { it.manufactureYear }
+            }
+
+            else -> {
+               this?.sortedByDescending { it.manufactureYear }
+            }
+        } ?: listOf()
+
 }
