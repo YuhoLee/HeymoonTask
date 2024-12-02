@@ -37,6 +37,12 @@ class SearchViewModel @Inject constructor(
         )
     }
 
+    fun initErrorMsg(){
+        _uiState.value = _uiState.value.copy(
+            errorMsg = null
+        )
+    }
+
     fun searchKeyword(keyword: String, isInit: Boolean = false) {
         viewModelScope.launch {
             if(isInit){

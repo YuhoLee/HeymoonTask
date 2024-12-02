@@ -11,6 +11,7 @@ import com.project.presentation.base.BaseFragment
 import com.project.presentation.databinding.FragmentSearchBinding
 import com.project.presentation.detail.item.CollectionDetailItem
 import com.project.presentation.search.adapter.SearchCollectionAdapter
+import com.project.presentation.search.dialog.DialogErrorPopup
 import com.project.presentation.search.dialog.DialogSearchClassFilter
 import com.project.presentation.search.dialog.DialogSearchOrderBy
 import dagger.hilt.android.AndroidEntryPoint
@@ -78,7 +79,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
                     viewModel.searchKeyword(keyword = etSearch.text.toString(), isInit = true)
                 } else {
                     // 검색어를 입력해주세요 팝업 띄우기
-
+                    showErrPopup(text = requireContext().getString(R.string.text_search_err_msg_1))
                 }
             }
 
@@ -198,5 +199,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
                 }
             }
         }
+        if(uiState.errorMsg != null){
+            viewModel.initErrorMsg()
+            showErrPopup(text = requireContext().getString(R.string.text_search_err_msg_3))
+        }
+    }
+
+    private fun showErrPopup(text: String){
+        DialogErrorPopup(context = requireContext()).apply{
+            setTitle(text = text)
+        }.show()
     }
 }
