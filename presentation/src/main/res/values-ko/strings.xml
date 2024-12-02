@@ -29,7 +29,7 @@
 
     <string name="text_confirm">확인</string>
 
-    <string name="text_detail_writer">작가면</string>
+    <string name="text_detail_writer">작가명</string>
     <string name="text_detail_year_created">제작연도</string>
     <string name="text_detail_category">부문</string>
     <string name="text_detail_dimensions">규격</string>
