@@ -103,7 +103,7 @@ fun CollectionDetailScreen(
         val state = viewModel.state.collectAsStateWithLifecycle()
 
         LaunchedEffect(state.value.isAddFavoriteSuccess) {
-            if(state.value.isAddFavoriteSuccess){
+            if (state.value.isAddFavoriteSuccess) {
                 onNext()
             }
         }
@@ -144,7 +144,15 @@ fun CollectionDetailScreen(
 
                     item {
                         CollectionDetailInfo(
-                            modifier = Modifier.padding(top = 30.dp, bottom = 30.dp),
+                            modifier = Modifier.padding(top = 30.dp),
+                            productNameKo = item.productNameKo,
+                            productNameEn = item.productNameEn
+                        )
+
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        CollectionDetailInfoDesc(
+                            modifier = Modifier.padding(bottom = 30.dp),
                             item = item
                         )
                     }
@@ -212,6 +220,40 @@ fun CollectionDetailImg(
 
 @Composable
 fun CollectionDetailInfo(
+    productNameKo: String,
+    productNameEn: String,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp)
+    ) {
+
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = productNameKo,
+            color = gray900,
+            fontSize = 22.sp,
+            style = heymoonTypography.textSemiBold
+        )
+
+        if (productNameKo != productNameEn) {
+            Spacer(modifier = Modifier.height(4.dp))
+
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                text = productNameEn,
+                color = gray900,
+                fontSize = 14.sp,
+                style = heymoonTypography.textSemiBold
+            )
+        }
+    }
+}
+
+@Composable
+fun CollectionDetailInfoDesc(
     item: CollectionDetailItem,
     modifier: Modifier = Modifier
 ) {
@@ -223,32 +265,8 @@ fun CollectionDetailInfo(
         Pair(stringResource(R.string.text_detail_year_collected), item.collectYear),
         Pair(stringResource(R.string.text_detail_material_techniques), item.materialTechnic)
     )
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp)
-    ) {
 
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = item.productNameKo,
-            color = gray900,
-            fontSize = 22.sp,
-            style = heymoonTypography.textSemiBold
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = item.productNameEn,
-            color = gray900,
-            fontSize = 14.sp,
-            style = heymoonTypography.textSemiBold
-        )
-
-        Spacer(modifier = Modifier.height(30.dp))
-
+    Column(modifier = modifier.padding(horizontal = 20.dp)) {
         itemGroup.forEach {
             CollectionDetailInfoItemRow(
                 modifier = Modifier
