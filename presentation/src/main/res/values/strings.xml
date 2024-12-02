@@ -23,6 +23,9 @@
     <string name="text_search_class_design">Design</string>
     <string name="text_search_order_by_product_year_asc">Product year Asc</string>
     <string name="text_search_order_by_product_year_desc">Product year Desc</string>
+    <string name="text_search_err_msg_1">Please enter a search keyword.</string>
+    <string name="text_search_err_msg_2">No collection search results.</string>
+    <string name="text_search_err_msg_3">Unknown error.\nPlease contact the administrator</string>
 
     <string name="text_confirm">Confirm</string>
 

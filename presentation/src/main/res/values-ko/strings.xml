@@ -23,6 +23,9 @@
     <string name="text_search_class_explanation">#VALUE# 외 #COUNT#</string>
     <string name="text_search_order_by_product_year_asc">제작연도 오름차순</string>
     <string name="text_search_order_by_product_year_desc">제작연도 내림차순</string>
+    <string name="text_search_err_msg_1">검색어를 입력해주세요.</string>
+    <string name="text_search_err_msg_2">소장품 검색 결과가 없습니다.</string>
+    <string name="text_search_err_msg_3">알 수 없는 오류입니다.\n관리자에게 문의해주세요.</string>
 
     <string name="text_confirm">확인</string>
 
