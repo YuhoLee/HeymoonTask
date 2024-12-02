@@ -78,9 +78,4 @@ dependencies {
 
     // Glide
     implementation(libs.glide.compose)
-
-    // Paging3
-    implementation(libs.paging.runtime)
-    implementation(libs.paging.runtime.ktx)
-    implementation(libs.paging.common)
 }

@@ -70,7 +70,4 @@ dependencies {
     implementation(libs.retrofit2)
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.okhttp3.logging.interceptor)
-
-    // Paging3
-    implementation(libs.paging.common)
 }
