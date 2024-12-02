@@ -2,7 +2,7 @@
 <resources>
     <string name="nav_home">Home</string>
     <string name="nav_favorites">Favorites</string>
-    
+
     <string name="text_seoul_museum_of_art">Seoul Museum of Art</string>
     <string name="text_favorites">Favorites</string>
     <string name="text_search_collections">Search Collections</string>
@@ -38,4 +38,6 @@
     <string name="text_common_no">No</string>
 
     <string name="placeholder_enter_keyword">Enter keywords</string>
+
+    <string name="toast_double_back_text">Press once more to exit.</string>
 </resources>
