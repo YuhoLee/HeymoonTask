@@ -1,16 +1,11 @@
 package com.project.data.repository
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.PagingSource.LoadResult
 import com.project.common.data.DataState
 import com.project.common.extension.Extension.orOneSpaceEmpty
 import com.project.data.local.db.FavoriteCollectionDatabase
 import com.project.data.mapper.Mapper.toFavoriteCollectionEntity
 import com.project.data.mapper.Mapper.toLocalCollectionModel
 import com.project.data.mapper.Mapper.toRemoteCollectionModel
-import com.project.data.paging.CollectionPagingSource
 import com.project.data.remote.NetworkUtils
 import com.project.data.remote.datasource.CollectionDataSource
 import com.project.domain.model.LocalCollectionInsertModel
