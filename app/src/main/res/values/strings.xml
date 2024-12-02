@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">HeymoonTask</string>
+    <string name="app_name" translatable="false">HeymoonTask</string>
+    <string name="splash_title">Manage your own collection</string>
 </resources>

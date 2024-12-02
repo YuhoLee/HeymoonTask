@@ -64,4 +64,7 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
 
+    // Splash
+    implementation(libs.androidx.splash)
+
 }
