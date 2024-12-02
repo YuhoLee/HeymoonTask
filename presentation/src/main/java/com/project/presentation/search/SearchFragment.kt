@@ -116,6 +116,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
                     )
                 }
             }
+
+            header.setOnBackPressed {
+                activity?.onBackPressedDispatcher?.onBackPressed()
+            }
         }
     }
 

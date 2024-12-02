@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -42,6 +43,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
@@ -54,6 +56,13 @@ import com.project.presentation.theme.heymoonTypography
 import com.project.presentation.theme.white
 
 class CollectionDetailFragment : Fragment() {
+    private lateinit var navController: NavController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        navController = findNavController()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,7 +83,6 @@ class CollectionDetailFragment : Fragment() {
                     CollectionDetailScreen(
                         prevRoute = prevRoute, item = item,
                         onNext = {
-                            val navController = findNavController()
                             navController.navigate(R.id.action_collection_detail_to_favorites)
                         }
                     )
@@ -166,12 +174,13 @@ fun CollectionDetailHeader(
     modifier: Modifier = Modifier,
     onFavoriteCollection: () -> Unit
 ) {
+    val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
     AndroidView(
         modifier = modifier.fillMaxWidth(),
         factory = { context ->
             BaseActionHeader(context).apply {
                 setOnBackPressed {
-
+                    backDispatcher?.onBackPressed()
                 }
                 setOnFavoritePressed {
                     if (prevRoute == "Search") {
@@ -182,6 +191,8 @@ fun CollectionDetailHeader(
         },
         update = {
             it.setTitle(title = text)
+            // 즐겨찾기에서 유입된 경우에는 icon을 활성화
+            it.setFavoriteSelected(isSelected = prevRoute == "Favorites")
         }
     )
 }
