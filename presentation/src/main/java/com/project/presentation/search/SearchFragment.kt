@@ -1,5 +1,6 @@
 package com.project.presentation.search
 
+import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.presentation.R
 import com.project.presentation.base.BaseFragment
 import com.project.presentation.databinding.FragmentSearchBinding
+import com.project.presentation.detail.item.CollectionDetailItem
 import com.project.presentation.search.adapter.SearchCollectionAdapter
 import com.project.presentation.search.dialog.DialogSearchClassFilter
 import com.project.presentation.search.dialog.DialogSearchOrderBy
@@ -30,7 +32,27 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         super.init()
 
         searchCollectionAdapter = SearchCollectionAdapter {
-//            navController.navigate()
+            val collectionDetailItem = CollectionDetailItem(
+                productNameKo = it.productNameKo,
+                productNameEn = it.productNameEn,
+                maker = it.maker,
+                productClass = it.productClass,
+                whSize = it.whSize,
+                manufactureYear = it.manufactureYear,
+                collectYear = it.collectYear,
+                materialTechnic = it.materialTechnic,
+                thumbImgUrl = it.thumbImgUrl,
+                mainImgUrl = it.mainImgUrl,
+            )
+
+            // 수집품 아이템 누를 떄에 대한 수행
+            navController.navigate(
+                resId = R.id.action_search_to_collection_detail,
+                args = Bundle().apply {
+                    putString("prevRoute", "Search")
+                    putParcelable("item", collectionDetailItem)
+                }
+            )
         }
         dialogSearchClassFilter = DialogSearchClassFilter()
         dialogSearchOrderBy = DialogSearchOrderBy()
@@ -124,7 +146,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
                 clClass.isVisible = !isEmpty
 
                 val pcValues = uiState.getProductClassValues()
-                searchCollectionAdapter.updateList(uiState.searchResult.filter { pcValues.contains(it.productClass) })
+                searchCollectionAdapter.updateList(uiState.searchResult.filter {
+                    pcValues.contains(
+                        it.productClass
+                    )
+                })
                 rvSearchResult.post {
                     searchCollectionAdapter.notifyDataSetChanged()
                 }

@@ -25,8 +25,13 @@
         tools:layout="@layout/fragment_favorites">
 
         <action
-            android:id="@+id/action_FavoritesFragment_to_HomeFragment"
+            android:id="@+id/action_favorites_to_collection_detail"
+            app:destination="@id/CollectionDetailFragment" />
+
+        <action
+            android:id="@+id/action_favorites_to_home"
             app:destination="@id/HomeFragment" />
+
     </fragment>
 
     <fragment
@@ -34,7 +39,21 @@
         android:name="com.project.presentation.search.SearchFragment">
 
         <action
-            android:id="@+id/action_OnBackPressed"
+            android:id="@+id/action_search_to_home"
             app:destination="@id/HomeFragment" />
+
+        <action
+            android:id="@+id/action_search_to_collection_detail"
+            app:destination="@id/CollectionDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/CollectionDetailFragment"
+        android:name="com.project.presentation.detail.CollectionDetailFragment">
+
+        <action
+            android:id="@+id/action_collection_detail_to_favorites"
+            app:destination="@id/FavoritesFragment" />
+
     </fragment>
 </navigation>

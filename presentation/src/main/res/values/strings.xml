@@ -26,5 +26,16 @@
 
     <string name="text_confirm">Confirm</string>
 
+    <string name="text_detail_writer">Writer</string>
+    <string name="text_detail_year_created">Year created</string>
+    <string name="text_detail_category">Category</string>
+    <string name="text_detail_dimensions">Dimensions</string>
+    <string name="text_detail_year_collected">Year collected</string>
+    <string name="text_detail_material_techniques">Materials&amp;Techniques</string>
+
+    <string name="text_detail_popup_favorite_add_title">Would you like to add it to your favorites?</string>
+    <string name="text_common_add">Add</string>
+    <string name="text_common_no">No</string>
+
     <string name="placeholder_enter_keyword">Enter keywords</string>
 </resources>

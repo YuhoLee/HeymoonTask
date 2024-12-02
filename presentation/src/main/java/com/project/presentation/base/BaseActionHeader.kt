@@ -43,4 +43,20 @@ class BaseActionHeader: ConstraintLayout {
         }
 
     }
+
+    fun setTitle(title: String){
+        binding.tvActionHeaderTitle.text = title
+    }
+
+    fun setOnBackPressed(callback: () -> Unit){
+        binding.ivBack.setOnClickListener {
+            callback.invoke()
+        }
+    }
+
+    fun setOnFavoritePressed(callback: () -> Unit){
+        binding.ivFavorite.setOnClickListener {
+            callback.invoke()
+        }
+    }
 }

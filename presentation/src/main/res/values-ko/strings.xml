@@ -26,5 +26,16 @@
 
     <string name="text_confirm">확인</string>
 
+    <string name="text_detail_writer">작가면</string>
+    <string name="text_detail_year_created">제작연도</string>
+    <string name="text_detail_category">부문</string>
+    <string name="text_detail_dimensions">규격</string>
+    <string name="text_detail_year_collected">수집연도</string>
+    <string name="text_detail_material_techniques">재료 및 기법</string>
+
+    <string name="text_detail_popup_favorite_add_title">즐겨찾기에 추가할까요?</string>
+    <string name="text_common_add">추가하기</string>
+    <string name="text_common_no">아니요</string>
+
     <string name="placeholder_enter_keyword">검색어를 입력하세요</string>
 </resources>

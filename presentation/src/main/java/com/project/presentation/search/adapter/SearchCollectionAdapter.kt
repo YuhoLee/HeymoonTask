@@ -59,15 +59,4 @@ class SearchCollectionAdapter(val onItemClick: (RemoteCollectionModel) -> Unit):
         collectionList.addAll(list)
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<RemoteCollectionModel>() {
-        override fun areItemsTheSame(
-            oldItem: RemoteCollectionModel,
-            newItem: RemoteCollectionModel
-        ): Boolean = oldItem.productNameKo == newItem.productNameKo
-
-        override fun areContentsTheSame(
-            oldItem: RemoteCollectionModel,
-            newItem: RemoteCollectionModel
-        ): Boolean = oldItem == newItem
-    }
 }
